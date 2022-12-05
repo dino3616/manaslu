@@ -1,0 +1,30 @@
+version: "3.8"
+
+x-production-base:
+  &production-base
+  env_file:
+    - ../.env
+    - ../.env.production
+
+services:
+  api:
+    extends:
+      file: ./docker-compose.common.yml
+      service: api
+    <<: *production-base
+    build:
+      context: ../
+      dockerfile: ./docker/api/Dockerfile.production
+      args:
+        - PORT=${API_PORT:-${PORT:-4000:4000}}
+
+  client:
+    extends:
+      file: ./docker-compose.common.yml
+      service: client
+    <<: *production-base
+    build:
+      context: ../
+      dockerfile: ./docker/client/Dockerfile.production
+      args:
+        - PORT=${CLIENT_PORT:-${PORT:-3000:3000}}

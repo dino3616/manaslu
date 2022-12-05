@@ -1,0 +1,33 @@
+ARG PORT
+ARG NODE_VERSION=18
+
+#############
+# Build Phase
+#############
+FROM node:${NODE_VERSION}-bullseye-slim AS builder
+
+WORKDIR /manaslu
+
+RUN yarn global add pkg
+
+COPY ./package.json ./yarn.lock ./
+COPY ./packages/api/package.json ./packages/api/package.json
+RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+
+COPY ./tsconfig.base.json ./tsconfig.base.json
+COPY ./packages/api ./packages/api
+RUN yarn workspace @shio/api build && \
+    pkg --target node18-linux --output ./bin/shio-api ./packages/api/dist/main.js
+
+###########
+# Run Phase
+###########
+FROM gcr.io/distroless/nodejs:${NODE_VERSION}-debug AS runner
+
+WORKDIR /manaslu
+
+COPY --from=builder /manaslu/bin/shio-api ./bin/shio-api
+
+USER nonroot
+EXPOSE ${PORT}
+CMD ["./bin/shio-api"]

@@ -1,0 +1,30 @@
+{
+  "name": "manaslu",
+  "workspaceFolder": "manaslu",
+  "dockerComposeFile": ["../docker/docker-compose.development.yml"],
+  "service": "app",
+  "extensions": [
+    "adam-bender.commit-message-editor",
+    "mikestead.dotenv",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "github.copilot",
+    "eamodio.gitlens",
+    "graphql.vscode-graphql",
+    "vincaslt.highlight-matching-tag",
+    "ecmel.vscode-html-css",
+    "wix.vscode-import-cost",
+    "visualstudioexptteam.vscodeintellicode",
+    "orta.vscode-jest",
+    "pkief.material-icon-theme",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "sooxt.pretty-graphql",
+    "prisma.prisma",
+    "stylelint.vscode-stylelint",
+    "tabnine.tabnine-vscode",
+    "bradlc.vscode-tailwindcss",
+    "hbenl.vscode-test-explorer",
+    "gruntfuggly.todo-tree"
+  ]
+}

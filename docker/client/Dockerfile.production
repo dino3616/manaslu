@@ -1,0 +1,48 @@
+ARG PORT
+ARG NODE_VERSION=18
+
+###############
+# Install Phase
+###############
+FROM node:${NODE_VERSION}-bullseye-slim AS installer
+ENV NODE_ENV=production
+
+WORKDIR /manaslu
+
+COPY package.json yarn.lock ./
+COPY ./packages/client/package.json ./packages/client/package.json
+RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+
+#############
+# Build Phase
+#############
+FROM node:${NODE_VERSION}-bullseye-slim AS builder
+
+WORKDIR /manaslu
+
+COPY ./package.json ./yarn.lock ./
+COPY ./packages/client/package.json ./packages/client/package.json
+RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+
+COPY ./tsconfig.base.json ./tsconfig.base.json
+COPY ./packages/client ./packages/client
+RUN yarn workspace @shio/client build
+
+###########
+# Run Phase
+###########
+FROM gcr.io/distroless/nodejs:${NODE_VERSION}-debug AS runner
+ENV NODE_ENV=production
+
+WORKDIR /manaslu
+
+COPY --from=installer /manaslu/node_modules ./node_modules
+COPY --from=installer /manaslu/packages/client/node_modules ./packages/client/node_modules
+COPY --from=builder /manaslu/packages/client/public ./packages/client/public
+COPY --from=builder /manaslu/packages/client/.next ./packages/client/.next
+
+WORKDIR /manaslu/packages/client
+
+USER nonroot
+EXPOSE ${PORT}
+CMD ["node_modules/.bin/next", "start"]

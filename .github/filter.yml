@@ -1,0 +1,7 @@
+api:
+  - .github/workflows/api*.yml
+  - packages/api/**
+
+client:
+  - .github/workflows/client*.yml
+  - packages/client/**
