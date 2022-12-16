@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "manaslu": {
+      "schema": ["./schema.gql"]
+    }
+  }
+}

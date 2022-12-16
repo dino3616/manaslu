@@ -1,0 +1,18 @@
+version: "3.8"
+
+x-common-base:
+  &common-base
+  tty: true
+
+services:
+  api:
+    <<: *common-base
+    container_name: api
+    ports:
+      - ${API_PACKAGE_PORT:-${PORT:-4000}}
+
+  client:
+    <<: *common-base
+    container_name: client
+    ports:
+      - ${CLIENT_PACKAGE_PORT:-${PORT:-3000}}

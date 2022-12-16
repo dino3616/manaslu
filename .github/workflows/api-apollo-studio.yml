@@ -1,0 +1,78 @@
+name: api apollo studio
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  node-version: 18
+  mongodb-version: 6
+  DATABASE_URL: mongodb://localhost:27017/test
+
+jobs:
+  filter:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      api: ${{ steps.changes.outputs.api }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: check for file changes
+        uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          token: ${{ github.token }}
+          filters: .github/filter.yml
+
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      APOLLO_KEY: ${{secrets.APOLLO_KEY}}
+    needs: filter
+    if: needs.filter.outputs.api == 'true'
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.node-version }}
+
+      - name: setup mongodb
+        uses: supercharge/mongodb-github-action@v1.8.0
+        with:
+          mongodb-version: ${{ env.mongodb-version }}
+          mongodb-port: 27017
+          mongodb-db: test
+
+      - name: install
+        run: yarn install --immutable
+
+      - name: setup prisma
+        run: yarn api prisma:gen
+
+      - name: generate graphql schema
+        run: timeout 30 yarn api dev
+        continue-on-error: true
+
+      - name: publish
+        run: yarn api apollo:rover
+
+  api-apollo-studio-check:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: ${{ ! failure() }}
+    steps:
+      - name: check
+        run: echo "publish graph is successfully executed."

@@ -1,0 +1,15 @@
+overwrite: true
+schema: ${NEXT_PUBLIC_GRAPHQL_URL}
+documents: 'src/infra/graphql/document/**/*.gql'
+generates:
+  src/infra/graphql/generated/graphql.ts:
+    config:
+      scalars:
+        DateTime: Date
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+  src/infra/graphql/schema.json:
+    plugins:
+      - 'introspection'
