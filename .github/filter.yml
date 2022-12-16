@@ -1,0 +1,16 @@
+api:
+  - .github/filter.yml
+  - .github/workflows/api-*.yml
+  - packages/api/**
+
+client:
+  - .github/filter.yml
+  - .github/workflows/client-*.yml
+  - packages/client/**
+
+docker:
+  - .github/filter.yml
+  - .github/workflows/docker-*.yml
+  - docker/**/*
+  - .dockerignore
+  - yarn.lock

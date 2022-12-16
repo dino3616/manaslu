@@ -1,0 +1,13 @@
+{
+  "moduleFileExtensions": ["json", "js", "ts"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^~/user/(.*)$": "<rootDir>/src/module/user/$1"
+  }
+}
