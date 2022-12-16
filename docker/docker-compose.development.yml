@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mongo:
     image: mongo:6
-    container_name: mongo
+    container_name: manaslu-mongo
     command: --replSet rs-manaslu
     ports:
       - 27017:27017
@@ -17,7 +17,7 @@ services:
 
   app:
     image: ghcr.io/dino3616/manaslu:latest
-    container_name: app
+    container_name: manaslu-app
     ports:
       - ${API_PORT:-4000:4000}
       - ${CLIENT_PORT:-3000:3000}
