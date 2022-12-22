@@ -25,7 +25,7 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@next/font": "13.0.7",
+    "@next/font": "13.1.0",
     "@radix-ui/react-navigation-menu": "1.1.1",
     "@urql/devtools": "2.0.3",
     "@urql/exchange-auth": "1.0.0",
@@ -35,7 +35,7 @@
     "framer-motion": "7.10.3",
     "graphql-tag": "2.12.6",
     "graphql-ws": "5.11.2",
-    "next": "13.0.7",
+    "next": "13.1.0",
     "next-remove-imports": "1.0.8",
     "next-transpile-modules": "10.0.0",
     "next-urql": "4.0.2",
@@ -62,7 +62,7 @@
     "@graphql-codegen/typescript-operations": "2.5.10",
     "@graphql-codegen/typescript-urql": "3.7.3",
     "@graphql-codegen/urql-introspection": "2.2.1",
-    "@next/react-refresh-utils": "13.0.7",
+    "@next/react-refresh-utils": "13.1.0",
     "@storybook/addon-a11y": "6.5.15",
     "@storybook/addon-actions": "6.5.15",
     "@storybook/addon-essentials": "6.5.15",
