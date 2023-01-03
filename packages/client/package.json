@@ -32,7 +32,7 @@
     "@urql/storybook-addon": "2.0.1",
     "babel-plugin-transform-remove-imports": "1.7.0",
     "date-fns": "2.29.3",
-    "framer-motion": "8.1.4",
+    "framer-motion": "8.1.5",
     "graphql-tag": "2.12.6",
     "graphql-ws": "5.11.2",
     "next": "13.1.1",
