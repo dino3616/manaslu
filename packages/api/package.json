@@ -51,7 +51,7 @@
     "graphql-validation-complexity": "0.4.2",
     "reflect-metadata": "0.1.13",
     "supertest-graphql": "1.1.4",
-    "ts-pattern": "4.0.6"
+    "ts-pattern": "4.1.1"
   },
   "devDependencies": {
     "@apollo/rover": "0.10.0",

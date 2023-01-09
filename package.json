@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "dotenv": "16.0.3",
-    "ts-pattern": "4.0.6",
+    "ts-pattern": "4.1.1",
     "uuid": "9.0.0"
   },
   "devDependencies": {
