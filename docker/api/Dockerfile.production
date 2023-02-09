@@ -1,7 +1,7 @@
 ARG PORT
 ARG NODE_VERSION=18
 
-FROM alpine:3 as alpine
+FROM alpine:20230208 as alpine
 
 #############
 # Build Phase
