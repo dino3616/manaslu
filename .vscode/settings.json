@@ -1,16 +1,4 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.prettier": true,
-    "source.fixAll.stylelint": true
-  },
-  "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
-  "editor.formatOnSave": true,
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "files.autoSave": "off",
   "files.encoding": "utf8",
   "files.eol": "\n",
   "commit-message-editor.view.defaultView": "form",
@@ -156,7 +144,9 @@
     }
   ],
   "eslint.format.enable": true,
-  "eslint.packageManager": "yarn",
-  "eslint.workingDirectories": ["packages/api", "packages/client"],
-  "graphql-config.load.filePath": "../graphql.config.json"
+  "eslint.packageManager": "pnpm",
+  "eslint.workingDirectories": ["apps/api", "apps/client"],
+  "graphql-config.load.filePath": "../graphql.config.json",
+  "jest.rootPath": "/manaslu",
+  "jest.jestCommandLine": "pnpm apps -- test"
 }

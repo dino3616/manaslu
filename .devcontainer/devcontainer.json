@@ -3,30 +3,51 @@
   "workspaceFolder": "manaslu",
   "dockerComposeFile": ["../docker/docker-compose.development.yml"],
   "service": "app",
-  "extensions": [
-    "formulahendry.auto-complete-tag",
-    "adam-bender.commit-message-editor",
-    "mikestead.dotenv",
-    "usernamehw.errorlens",
-    "dbaeumer.vscode-eslint",
-    "github.copilot",
-    "eamodio.gitlens",
-    "graphql.vscode-graphql",
-    "vincaslt.highlight-matching-tag",
-    "ecmel.vscode-html-css",
-    "wix.vscode-import-cost",
-    "visualstudioexptteam.vscodeintellicode",
-    "orta.vscode-jest",
-    "pkief.material-icon-theme",
-    "mongodb.mongodb-vscode",
-    "christian-kohler.path-intellisense",
-    "esbenp.prettier-vscode",
-    "sooxt.pretty-graphql",
-    "prisma.prisma",
-    "stylelint.vscode-stylelint",
-    "tabnine.tabnine-vscode",
-    "bradlc.vscode-tailwindcss",
-    "hbenl.vscode-test-explorer",
-    "gruntfuggly.todo-tree"
-  ]
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "formulahendry.auto-complete-tag",
+        "wmaurer.change-case",
+        "gencay.vscode-chatgpt",
+        "bierner.color-info",
+        "adam-bender.commit-message-editor",
+        "mikestead.dotenv",
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+        "eamodio.gitlens",
+        "graphql.vscode-graphql",
+        "vincaslt.highlight-matching-tag",
+        "ecmel.vscode-html-css",
+        "wix.vscode-import-cost",
+        "visualstudioexptteam.vscodeintellicode",
+        "orta.vscode-jest",
+        "pkief.material-icon-theme",
+        "mongodb.mongodb-vscode",
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode",
+        "sooxt.pretty-graphql",
+        "prisma.prisma",
+        "stylelint.vscode-stylelint",
+        "tabnine.tabnine-vscode",
+        "bradlc.vscode-tailwindcss",
+        "hbenl.vscode-test-explorer",
+        "gruntfuggly.todo-tree"
+      ],
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true,
+          "source.fixAll.prettier": true,
+          "source.fixAll.stylelint": true
+        },
+        "editor.cursorBlinking": "phase",
+        "editor.cursorSmoothCaretAnimation": "on",
+        "editor.formatOnSave": true,
+        "editor.quickSuggestions": {
+          "strings": true
+        },
+        "files.autoSave": "off"
+      }
+    }
+  }
 }
