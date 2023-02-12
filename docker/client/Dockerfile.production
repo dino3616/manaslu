@@ -9,9 +9,17 @@ ENV NODE_ENV=production
 
 WORKDIR /manaslu
 
-COPY package.json yarn.lock ./
-COPY ./packages/client/package.json ./packages/client/package.json
-RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+RUN yarn global add pnpm
+
+COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+COPY ./apps/api/package.json ./apps/api/package.json
+COPY ./apps/client/package.json ./apps/client/package.json
+COPY ./packages/eslint/package.json ./packages/eslint/package.json
+COPY ./packages/jest/package.json ./packages/jest/package.json
+COPY ./packages/prettier/package.json ./packages/prettier/package.json
+COPY ./packages/stylelint/package.json ./packages/stylelint/package.json
+COPY ./packages/tsconfig/package.json ./packages/tsconfig/package.json
+RUN pnpm install --frozen-lockfile --prod
 
 #############
 # Build Phase
@@ -20,13 +28,22 @@ FROM node:${NODE_VERSION}-bullseye-slim AS builder
 
 WORKDIR /manaslu
 
-COPY ./package.json ./yarn.lock ./
-COPY ./packages/client/package.json ./packages/client/package.json
-RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+RUN yarn global add pnpm
 
-COPY ./tsconfig.base.json ./tsconfig.base.json
-COPY ./packages/client ./packages/client
-RUN yarn client build
+COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+COPY ./apps/api/package.json ./apps/api/package.json
+COPY ./apps/client/package.json ./apps/client/package.json
+COPY ./packages/eslint/package.json ./packages/eslint/package.json
+COPY ./packages/jest/package.json ./packages/jest/package.json
+COPY ./packages/prettier/package.json ./packages/prettier/package.json
+COPY ./packages/stylelint/package.json ./packages/stylelint/package.json
+COPY ./packages/tsconfig/package.json ./packages/tsconfig/package.json
+RUN pnpm install --frozen-lockfile
+
+COPY ./apps/client ./apps/client
+COPY ./packages ./packages
+RUN pnpm client build
 
 ###########
 # Run Phase
@@ -36,12 +53,13 @@ ENV NODE_ENV=production
 
 WORKDIR /manaslu
 
-COPY --from=installer /manaslu/node_modules ./node_modules
-COPY --from=installer /manaslu/packages/client/node_modules ./packages/client/node_modules
-COPY --from=builder /manaslu/packages/client/public ./packages/client/public
-COPY --from=builder /manaslu/packages/client/.next ./packages/client/.next
+COPY --from=builder /manaslu/node_modules ./node_modules
+COPY --from=installer /manaslu/apps/client/node_modules ./apps/client/node_modules
+COPY --from=installer /manaslu/packages/tsconfig/node_modules ./packages/tsconfig/node_modules
+COPY --from=builder /manaslu/apps/client/public ./apps/client/public
+COPY --from=builder /manaslu/apps/client/.next ./apps/client/.next
 
-WORKDIR /manaslu/packages/client
+WORKDIR /manaslu/apps/client
 
 USER nonroot
 EXPOSE ${PORT}

@@ -6,13 +6,21 @@ FROM node:${NODE_VERSION}-bullseye
 RUN apt-get update \
     && apt-get --no-install-recommends -y install gnupg2 ca-certificates \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists
+    && rm -rf /var/lib/apt/lists \
+    && yarn global add pnpm
 
 WORKDIR /manaslu
 
 COPY ./.git ./.git
-COPY ./package.json ./yarn.lock ./
-COPY ./packages/api/package.json ./packages/api/package.json
-COPY ./packages/client/package.json ./packages/client/package.json
-# hadolint ignore=DL3060
-RUN --mount=type=cache,sharing=locked,target=/usr/local/share/.cache/yarn/v6 yarn install --immutable --immutable-cache --network-timeout 100000
+COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+COPY ./apps/api/package.json ./apps/api/package.json
+COPY ./apps/client/package.json ./apps/client/package.json
+COPY ./packages/eslint/package.json ./packages/eslint/package.json
+COPY ./packages/eslint/eslint-config-manaslu-base/package.json ./packages/eslint/eslint-config-manaslu-base/package.json
+COPY ./packages/eslint/eslint-config-manaslu-nextjs/package.json ./packages/eslint/eslint-config-manaslu-nextjs/package.json
+COPY ./packages/eslint/eslint-config-manaslu-node/package.json ./packages/eslint/eslint-config-manaslu-node/package.json
+COPY ./packages/jest/package.json ./packages/jest/package.json
+COPY ./packages/prettier/package.json ./packages/prettier/package.json
+COPY ./packages/stylelint/package.json ./packages/stylelint/package.json
+COPY ./packages/tsconfig/package.json ./packages/tsconfig/package.json
+RUN pnpm install --frozen-lockfile

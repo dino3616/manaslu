@@ -10,13 +10,20 @@ FROM node:${NODE_VERSION}-bullseye-slim AS builder
 
 WORKDIR /manaslu
 
-COPY ./package.json ./yarn.lock ./
-COPY ./packages/api/package.json ./packages/api/package.json
-RUN yarn install --immutable --immutable-cache --check-cache --network-timeout 600000
+RUN yarn global add pnpm
 
-COPY ./tsconfig.base.json ./tsconfig.base.json
-COPY ./packages/api ./packages/api
-RUN yarn api build
+COPY ./package.json ./pnpm-lock.yaml ./pnpm-workspace.yaml ./
+COPY ./apps/api/package.json ./apps/api/package.json
+COPY ./apps/client/package.json ./apps/client/package.json
+COPY ./packages/eslint/package.json ./packages/eslint/package.json
+COPY ./packages/jest/package.json ./packages/jest/package.json
+COPY ./packages/prettier/package.json ./packages/prettier/package.json
+COPY ./packages/stylelint/package.json ./packages/stylelint/package.json
+COPY ./packages/tsconfig/package.json ./packages/tsconfig/package.json
+RUN pnpm install --frozen-lockfile
+COPY ./apps/api ./apps/api
+COPY ./packages ./packages
+RUN pnpm api build
 
 ###########
 # Run Phase
@@ -29,10 +36,11 @@ WORKDIR /manaslu
 COPY --from=alpine /lib/libz.so.1 /lib/libz.so.1
 COPY --from=alpine /lib/libc.musl-x86_64.so.1 /lib/libc.musl-x86_64.so.1
 COPY --from=builder /manaslu/node_modules ./node_modules
-COPY --from=builder /manaslu/packages/api/node_modules ./packages/api/node_modules
-COPY --from=builder /manaslu/packages/api/dist ./packages/api/dist
+COPY --from=builder /manaslu/apps/api/node_modules ./apps/api/node_modules
+COPY --from=builder /manaslu/packages/tsconfig/node_modules ./packages/tsconfig/node_modules
+COPY --from=builder /manaslu/apps/api/dist ./apps/api/dist
 
-WORKDIR /manaslu/packages/api
+WORKDIR /manaslu/apps/api
 
 EXPOSE ${PORT}
-CMD ["dist/main.js"]
+CMD ["dist/src/main.js"]
