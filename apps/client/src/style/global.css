@@ -1,0 +1,8 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* stylelint-disable-next-line selector-id-pattern */
+#__next {
+  height: 100%;
+}

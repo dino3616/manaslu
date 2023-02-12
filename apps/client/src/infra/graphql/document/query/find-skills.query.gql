@@ -1,0 +1,11 @@
+query FindSkills($orderBy: [SkillOrderInput!]) {
+  findSkills(orderBy: $orderBy) {
+    createdAt
+    description
+    iconUrl
+    id
+    learningLevel
+    name
+    officialUrl
+  }
+}

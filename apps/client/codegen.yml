@@ -1,0 +1,12 @@
+overwrite: true
+schema: './graphql.schema.json'
+documents: 'src/infra/graphql/document/**/*.gql'
+generates:
+  src/infra/graphql/generated/graphql.ts:
+    config:
+      scalars:
+        DateTime: Date
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'

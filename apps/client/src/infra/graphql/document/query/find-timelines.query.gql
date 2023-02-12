@@ -1,0 +1,8 @@
+query FindTimelines($orderBy: [TimelineOrderInput!]) {
+  findTimelines(orderBy: $orderBy) {
+    createdAt
+    happenedAt
+    id
+    title
+  }
+}

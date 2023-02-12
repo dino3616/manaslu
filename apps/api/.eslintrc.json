@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "extends": ["manaslu-node"],
+  "rules": {
+    // FIXME: Explicitly write "off" to avoid an error that a rule that is not in the exntends source has been added for some reason.
+    // However, since the cause is unknown, investigation is required.
+    "react/jsx-filename-extension": "off"
+  }
+}

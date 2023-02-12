@@ -1,0 +1,4 @@
+export enum InjectionToken {
+  USER_REPOSITORY = 'USER_REPOSITORY',
+  USER_READER_USE_CASE = 'USER_READER_USE_CASE',
+}
