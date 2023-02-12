@@ -1,0 +1,14 @@
+{
+  "name": "eslint-config-manaslu-base",
+  "version": "0.1.0",
+  "repository": "https://github.com/dino3616/manaslu.git",
+  "author": "dino3616 <85730998+dino3616@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./**/*.js",
+    "lint:fix": "eslint ./**/*.js --fix"
+  }
+}
