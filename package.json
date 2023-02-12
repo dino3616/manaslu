@@ -3,49 +3,41 @@
   "version": "0.1.0",
   "repository": "https://github.com/dino3616/manaslu.git",
   "author": "dino3616 <85730998+dino3616@users.noreply.github.com>",
-  "license": "Salty",
+  "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "api": "yarn workspace @manaslu/api",
-    "client": "yarn workspace @manaslu/client"
+    "all": "pnpm --filter @manaslu/*",
+    "apps": "pnpm --filter './apps/**'",
+    "api": "pnpm --filter @manaslu/api",
+    "client": "pnpm --filter @manaslu/client",
+    "packages": "pnpm --filter './packages/**'",
+    "eslint": "pnpm --filter @manaslu/eslint",
+    "prettier": "pnpm --filter @manaslu/prettier",
+    "stylelint": "pnpm --filter @manaslu/stylelint",
+    "tsconfig": "pnpm --filter @manaslu/tsconfig"
   },
   "dependencies": {
-    "dotenv": "16.0.3",
-    "ts-pattern": "4.1.1",
-    "uuid": "9.0.0"
+    "dotenv": "16.0.3"
   },
   "devDependencies": {
-    "@types/jest": "29.2.5",
-    "@types/node": "18.11.18",
+    "@types/jest": "29.4.0",
+    "@types/node": "18.13.0",
     "@types/uuid": "9.0.0",
-    "@typescript-eslint/eslint-plugin": "5.48.0",
-    "@typescript-eslint/parser": "5.48.0",
     "cross-env": "7.0.3",
-    "eslint": "8.31.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-airbnb-typescript": "17.0.0",
-    "eslint-config-next": "13.1.1",
-    "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.6.1",
-    "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-react": "7.31.11",
-    "eslint-plugin-storybook": "0.6.8",
-    "eslint-plugin-tailwindcss": "3.8.0",
+    "eslint": "8.34.0",
     "graphql": "16.6.0",
     "graphql-type-json": "0.3.2",
     "husky": "8.0.3",
-    "jest": "29.3.1",
-    "lint-staged": "13.1.0",
-    "prettier": "2.8.2",
-    "rimraf": "3.0.2",
-    "ts-jest": "29.0.3",
+    "jest": "29.4.2",
+    "lint-staged": "13.1.1",
+    "prettier": "2.8.4",
+    "rimraf": "4.1.2",
+    "stylelint": "15.0.0",
+    "ts-jest": "29.0.5",
     "ts-node": "10.9.1",
-    "typescript": "4.9.4"
+    "turbo": "1.7.4",
+    "typescript": "4.9.5"
   }
 }
