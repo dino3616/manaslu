@@ -1,0 +1,26 @@
+{
+  "name": "@manaslu/eslint",
+  "version": "0.1.0",
+  "repository": "https://github.com/dino3616/manaslu.git",
+  "author": "dino3616 <85730998+dino3616@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./**/*.json",
+    "lint:fix": "eslint ./**/*.json --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.51.0",
+    "@typescript-eslint/parser": "5.51.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-next": "13.1.6",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-config-manaslu-base": "workspace:*",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-storybook": "0.6.10",
+    "eslint-plugin-tailwindcss": "3.8.3"
+  }
+}
