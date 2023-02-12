@@ -1,0 +1,24 @@
+{
+  "name": "@manaslu/stylelint",
+  "version": "0.1.0",
+  "repository": "https://github.com/dino3616/manaslu.git",
+  "author": "dino3616 <85730998+dino3616@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./**/*.js",
+    "lint:fix": "eslint ./**/*.js --fix",
+    "fmt": "prettier --check .",
+    "fmt:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@manaslu/prettier": "workspace:*",
+    "eslint-config-manaslu-base": "workspace:*",
+    "stylelint-config-prettier": "9.0.5",
+    "stylelint-config-recess-order": "3.1.0",
+    "stylelint-config-standard-scss": "6.1.0",
+    "stylelint-prettier": "2.0.0"
+  }
+}
