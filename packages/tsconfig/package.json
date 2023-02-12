@@ -1,0 +1,24 @@
+{
+  "name": "@manaslu/tsconfig",
+  "version": "0.1.0",
+  "repository": "https://github.com/dino3616/manaslu.git",
+  "author": "dino3616 <85730998+dino3616@users.noreply.github.com>",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "./tsconfig.*.json"
+  ],
+  "scripts": {
+    "lint": "eslint ./**/*.json",
+    "lint:fix": "eslint ./**/*.json --fix",
+    "fmt": "prettier --check .",
+    "fmt:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@manaslu/prettier": "workspace:*",
+    "@tsconfig/next-strictest": "1.0.1",
+    "@tsconfig/node-lts-strictest": "18.12.1",
+    "@tsconfig/strictest": "1.0.2",
+    "eslint-config-manaslu-base": "workspace:*"
+  }
+}
