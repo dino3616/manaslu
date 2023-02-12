@@ -2,8 +2,7 @@
 
 # dependencies
 node_modules
-.pnp
-.pnp.js
+.pnpm-store
 
 # testing
 coverage
@@ -20,14 +19,18 @@ dist
 .DS_Store
 *.pem
 
-# log
-*.log*
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
 # env files
 .env*
 
 # vercel
 .vercel
+.turbo
 
 # typescript
 *.tsbuildinfo
