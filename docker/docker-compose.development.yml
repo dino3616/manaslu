@@ -3,7 +3,7 @@ version: "3.8"
 services:
   mongo:
     image: mongo:6
-    container_name: manaslu-mongo
+    container_name: mongo
     command: --replSet rs-manaslu
     ports:
       - 27017:27017
@@ -17,7 +17,7 @@ services:
 
   app:
     image: ghcr.io/dino3616/manaslu:latest
-    container_name: manaslu-app
+    container_name: app
     ports:
       - ${API_PORT:-4000:4000}
       - ${CLIENT_PORT:-3000:3000}
@@ -29,17 +29,8 @@ services:
         source: ../
         target: /manaslu/
       - type: volume
-        source: node-modules
-        target: /manaslu/node_modules
-      - type: volume
-        source: api-node-modules
-        target: /manaslu/packages/api/node_modules
-      - type: volume
-        source: client-node-modules
-        target: /manaslu/packages/client/node_modules
-      - type: volume
-        source: yarn-cache
-        target: /usr/local/share/.cache/yarn/v6
+        source: pnpm-store
+        target: /manaslu/.pnpm-store
     tty: true
 
 volumes:
@@ -47,11 +38,5 @@ volumes:
     driver: local
   mongo-configdb:
     driver: local
-  node-modules:
-    driver: local
-  api-node-modules:
-    driver: local
-  client-node-modules:
-    driver: local
-  yarn-cache:
+  pnpm-store:
     driver: local
