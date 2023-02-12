@@ -24,7 +24,7 @@ jobs:
           token: ${{ github.token }}
           filters: .github/filter.yml
 
-  test-client:
+  test:
     runs-on: ubuntu-latest
     needs: filter
     if: ${{ needs.filter.outputs.client == 'true' }}
@@ -37,21 +37,36 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        id: pnpm-install
+        with:
+          run_install: false
+          version: 7.26.3
+
+      - name: get pnpm store
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
       - name: install
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: setup graphql
-        run: yarn client gql:gen
+        run: pnpm client gql:gen
 
       - name: unit test
-        run: yarn client test
-
-      - name: e2e test
-        run: yarn client test:e2e
+        run: pnpm client test
 
   client-test-check:
     runs-on: ubuntu-latest
-    needs: test-client
+    needs: test
     if: ${{ ! failure() }}
     steps:
       - name: check

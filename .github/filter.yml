@@ -1,16 +1,22 @@
 api:
   - .github/filter.yml
   - .github/workflows/api-*.yml
-  - packages/api/**
+  - apps/api/**
 
 client:
   - .github/filter.yml
   - .github/workflows/client-*.yml
-  - packages/client/**
+  - apps/client/**
+
+graphql:
+  - .github/filter.yml
+  - .github/workflows/graphql-*.yml
+  - apps/api/**
+  - apps/client/codegen*.*
 
 docker:
   - .github/filter.yml
   - .github/workflows/docker-*.yml
   - docker/**/*
   - .dockerignore
-  - yarn.lock
+  - pnpm-lock.yaml

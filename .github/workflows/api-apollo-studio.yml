@@ -34,7 +34,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      APOLLO_KEY: ${{secrets.APOLLO_KEY}}
+      APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
     needs: filter
     if: needs.filter.outputs.api == 'true'
     steps:
@@ -49,25 +49,43 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        id: pnpm-install
+        with:
+          run_install: false
+          version: 7.26.3
+
+      - name: get pnpm store
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
       - name: setup mongodb
-        uses: supercharge/mongodb-github-action@v1.8.0
+        uses: supercharge/mongodb-github-action@v1.9.0
         with:
           mongodb-version: ${{ env.mongodb-version }}
           mongodb-port: 27017
           mongodb-db: test
 
       - name: install
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: setup prisma
-        run: yarn api prisma:gen
+        run: pnpm api prisma:gen
 
       - name: generate graphql schema
-        run: timeout 30 yarn api dev
+        run: timeout 30 pnpm api dev
         continue-on-error: true
 
       - name: publish
-        run: yarn api apollo:rover
+        run: pnpm api apollo:rover
 
   api-apollo-studio-check:
     runs-on: ubuntu-latest
@@ -75,4 +93,4 @@ jobs:
     if: ${{ ! failure() }}
     steps:
       - name: check
-        run: echo "publish graph is successfully executed."
+        run: echo "publish is successfully executed."

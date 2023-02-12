@@ -24,7 +24,7 @@ jobs:
           token: ${{ github.token }}
           filters: .github/filter.yml
 
-  lint-client:
+  lint:
     runs-on: ubuntu-latest
     needs: filter
     if: ${{ needs.filter.outputs.client == 'true' }}
@@ -37,24 +37,42 @@ jobs:
         with:
           node-version: ${{ env.node-version }}
 
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2.2.4
+        id: pnpm-install
+        with:
+          run_install: false
+          version: 7.26.3
+
+      - name: get pnpm store
+        id: pnpm-cache
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-pnpm-store-
+
       - name: install
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: setup graphql
-        run: yarn client gql:gen
+        run: pnpm client gql:gen
 
       - name: eslint
-        run: yarn client lint --max-warnings=0
+        run: pnpm client lint --max-warnings=0
 
       - name: prettier
-        run: yarn client fmt
+        run: pnpm client fmt
 
       - name: stylelint
-        run: yarn client style --max-warnings=0
+        run: pnpm client style --max-warnings=0
 
   client-lint-check:
     runs-on: ubuntu-latest
-    needs: lint-client
+    needs: lint
     if: ${{ ! failure() }}
     steps:
       - name: check
