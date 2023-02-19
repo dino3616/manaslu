@@ -17,7 +17,7 @@ importers:
       lint-staged: 13.1.2
       prettier: 2.8.4
       rimraf: 4.1.2
-      stylelint: 15.1.0
+      stylelint: 15.2.0
       ts-jest: 29.0.5
       ts-node: 10.9.1
       turbo: 1.8.1
@@ -37,7 +37,7 @@ importers:
       lint-staged: 13.1.2
       prettier: 2.8.4
       rimraf: 4.1.2
-      stylelint: 15.1.0
+      stylelint: 15.2.0
       ts-jest: 29.0.5_cslgewaznsjxirw6ogkiwclmbu
       ts-node: 10.9.1_tncu2ai53lzgmizdedur7lbibe
       turbo: 1.8.1
@@ -75,7 +75,7 @@ importers:
       prisma: 4.10.1
       reflect-metadata: 0.1.13
       supertest-graphql: 1.1.4
-      ts-pattern: 4.1.4
+      ts-pattern: 4.2.0
       uuid: 9.0.0
     dependencies:
       '@nestjs/apollo': 10.2.0_2ak7f2iiw4s7ofss6xno25zkbm
@@ -99,7 +99,7 @@ importers:
       graphql-validation-complexity: 0.4.2_graphql@16.6.0
       reflect-metadata: 0.1.13
       supertest-graphql: 1.1.4_graphql@16.6.0
-      ts-pattern: 4.1.4
+      ts-pattern: 4.2.0
       uuid: 9.0.0
     devDependencies:
       '@apollo/rover': 0.12.1
@@ -183,7 +183,7 @@ importers:
       tailwind-merge: 1.9.1
       tailwind-scrollbar: 2.1.0
       tailwindcss: 3.2.7
-      ts-pattern: 4.1.4
+      ts-pattern: 4.2.0
       urql: 3.0.3
       urql-custom-scalars-exchange: 1.0.1
     dependencies:
@@ -216,7 +216,7 @@ importers:
       tailwind-merge: 1.9.1
       tailwind-scrollbar: 2.1.0_tailwindcss@3.2.7
       tailwindcss: 3.2.7_aesdjsunmf4wiehhujt67my7tu
-      ts-pattern: 4.1.4
+      ts-pattern: 4.2.0
       urql: 3.0.3_onqnqwb3ubg5opvemcqf7c2qhy
       urql-custom-scalars-exchange: 1.0.1_x5wlac77wk5hyllj2gto66ca74
     devDependencies:
@@ -17527,8 +17527,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /stylelint/15.1.0:
-    resolution: {integrity: sha512-Tw8OyIiYhxnIHUzgoLlCyWgCUKsPYiP3TDgs7M1VbayS+q5qZly2yxABg+YPe/hFRWiu0cOtptCtpyrn1CrnYw==}
+  /stylelint/15.2.0:
+    resolution: {integrity: sha512-wjg5OLn8zQwjlj5cYUgyQpMWKzct42AG5dYlqkHRJQJqsystFFn3onqEc263KH4xfEI0W3lZCnlIhFfS64uwSA==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -18180,8 +18180,8 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
 
-  /ts-pattern/4.1.4:
-    resolution: {integrity: sha512-Mcw65oUd1w5ktKi5BRwrnz16Otwk9iv7P0dKgvbi+A1albCDgnixohSqNLuFwIp5dzxPmTPm0iDQ6p1ZJr9uGw==}
+  /ts-pattern/4.2.0:
+    resolution: {integrity: sha512-Bmi5G8KQyTnkcpRYzAwgPj8nvIodm2S7aneJtILrW0/2ZzqXQbl5nC5YjCiZUj5Iqihl8MLH+TK7pmCAZ61xJg==}
     dev: false
 
   /ts-pnp/1.2.0_typescript@4.9.5:
