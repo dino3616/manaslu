@@ -52,7 +52,7 @@
     "graphql-validation-complexity": "0.4.2",
     "reflect-metadata": "0.1.13",
     "supertest-graphql": "1.1.4",
-    "ts-pattern": "4.2.0",
+    "ts-pattern": "4.2.1",
     "uuid": "9.0.0"
   },
   "devDependencies": {
