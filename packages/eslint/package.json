@@ -13,7 +13,7 @@
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
     "eslint-config-airbnb-typescript": "17.0.0",
-    "eslint-config-next": "13.2.2",
+    "eslint-config-next": "13.2.3",
     "eslint-config-prettier": "8.6.0",
     "eslint-config-manaslu-base": "workspace:*",
     "eslint-plugin-json": "^3.1.0",
@@ -21,6 +21,6 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-storybook": "0.6.11",
-    "eslint-plugin-tailwindcss": "3.10.0"
+    "eslint-plugin-tailwindcss": "3.10.1"
   }
 }
