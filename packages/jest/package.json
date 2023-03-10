@@ -15,6 +15,6 @@
   "devDependencies": {
     "@manaslu/prettier": "workspace:*",
     "eslint-config-manaslu-base": "workspace:*",
-    "jest-environment-jsdom": "29.4.3"
+    "jest-environment-jsdom": "29.5.0"
   }
 }
