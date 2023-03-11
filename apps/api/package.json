@@ -56,7 +56,7 @@
     "uuid": "9.0.0"
   },
   "devDependencies": {
-    "@apollo/rover": "0.12.2",
+    "@apollo/rover": "0.13.0",
     "@nestjs/schematics": "9.0.4",
     "@manaslu/jest": "workspace:*",
     "@manaslu/prettier": "workspace:*",
