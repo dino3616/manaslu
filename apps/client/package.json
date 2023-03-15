@@ -60,7 +60,7 @@
     "urql-custom-scalars-exchange": "1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.21.0",
+    "@babel/core": "7.21.3",
     "@graphql-codegen/cli": "3.2.2",
     "@graphql-codegen/introspection": "3.0.1",
     "@graphql-codegen/typescript": "3.0.2",
@@ -95,7 +95,7 @@
     "postcss": "8.4.21",
     "postcss-loader": "7.0.2",
     "react-refresh": "0.14.0",
-    "sass": "1.59.2",
+    "sass": "1.59.3",
     "sass-loader": "13.2.0",
     "storybook-addon-next-router": "4.0.2",
     "style-dictionary": "3.7.2",
