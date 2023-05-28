@@ -31,7 +31,7 @@
     "apollo:rover": "rover graph publish manaslu@current --schema ./schema.gql"
   },
   "dependencies": {
-    "@nestjs/apollo": "10.2.0",
+    "@nestjs/apollo": "11.0.6",
     "@nestjs/cli": "9.2.0",
     "@nestjs/common": "9.3.9",
     "@nestjs/config": "2.3.1",
