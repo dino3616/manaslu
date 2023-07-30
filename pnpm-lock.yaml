@@ -145,7 +145,7 @@ importers:
       '@types/react-dom': 18.0.11
       '@types/webpack': 5.28.0
       '@urql/devtools': 2.0.3
-      '@urql/exchange-auth': 1.0.0
+      '@urql/exchange-auth': 2.1.6
       '@urql/storybook-addon': 2.0.1
       autoprefixer: 10.4.14
       babel-plugin-superjson-next: 0.4.5
@@ -191,7 +191,7 @@ importers:
       '@radix-ui/react-dialog': 1.0.3_zula6vjvt3wdocc4mwcxqa6nzi
       '@radix-ui/react-navigation-menu': 1.1.2_biqbaboplfbrettd7655fr4n2y
       '@urql/devtools': 2.0.3_f6czssmak6eekb6gfrwnokxnma
-      '@urql/exchange-auth': 1.0.0_graphql@16.6.0
+      '@urql/exchange-auth': 2.1.6_graphql@16.6.0
       '@urql/storybook-addon': 2.0.1_gdcq4dv6opitr3wbfwyjmanyra
       babel-plugin-transform-remove-imports: 1.7.0_@babel+core@7.21.3
       date-fns: 2.29.3
@@ -348,6 +348,17 @@ importers:
       eslint-config-manaslu-base: link:../eslint/eslint-config-manaslu-base
 
 packages:
+
+  /@0no-co/graphql.web/1.0.4_graphql@16.6.0:
+    resolution: {integrity: sha512-W3ezhHGfO0MS1PtGloaTpg0PbaT8aZSmmaerL7idtU5F7oCI+uu25k+MsMS31BVFlp4aMkHSrNRxiD72IlK8TA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    peerDependenciesMeta:
+      graphql:
+        optional: true
+    dependencies:
+      graphql: 16.6.0
+    dev: false
 
   /@adobe/css-tools/4.1.0:
     resolution: {integrity: sha512-mMVJ/j/GbZ/De4ZHWbQAQO1J6iVnjtZLc9WEdkUQb8S/Bu2cAF2bETXUgMAdvMG3/ngtKmcNBe+Zms9bg6jnQQ==}
@@ -6485,6 +6496,15 @@ packages:
       wonka: 6.2.1
     dev: false
 
+  /@urql/core/4.1.1_graphql@16.6.0:
+    resolution: {integrity: sha512-iIoAy6BY+BUZZ7KIpnMT7C9q+ULf5ZCVxGe3/i7WZSJBrQa2h1QkIMhL+8fAKmOn9gt83jSIv5drWWnhZ9izEA==}
+    dependencies:
+      '@0no-co/graphql.web': 1.0.4_graphql@16.6.0
+      wonka: 6.3.3
+    transitivePeerDependencies:
+      - graphql
+    dev: false
+
   /@urql/devtools/2.0.3_f6czssmak6eekb6gfrwnokxnma:
     resolution: {integrity: sha512-TktPLiBS9LcBPHD6qcnb8wqOVcg3Bx0iCtvQ80uPpfofwwBGJmqnQTjUdEFU6kwaLOFZULQ9+Uo4831G823mQw==}
     peerDependencies:
@@ -6508,14 +6528,13 @@ packages:
     dev: false
     optional: true
 
-  /@urql/exchange-auth/1.0.0_graphql@16.6.0:
-    resolution: {integrity: sha512-79hqPQab+ifeINOxvQykvqub4ixWHBEIagN4U67ijcHGMfp3c4yEWRk4IJMPwF+OMT7LrRFuv+jRIZTQn/9VwQ==}
-    peerDependencies:
-      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  /@urql/exchange-auth/2.1.6_graphql@16.6.0:
+    resolution: {integrity: sha512-snOlt7p5kYq0KnPDuXkKe2qW3/BucQZOElvTeo3svLQuk9JiNJVnm6ffQ6QGiGO+G3AtMrctnno1+X44fLtDuQ==}
     dependencies:
-      '@urql/core': 3.1.1_graphql@16.6.0
-      graphql: 16.6.0
-      wonka: 6.2.1
+      '@urql/core': 4.1.1_graphql@16.6.0
+      wonka: 6.3.3
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /@urql/introspection/0.3.3_graphql@16.6.0:
@@ -11119,7 +11138,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -19206,6 +19225,10 @@ packages:
 
   /wonka/6.2.1:
     resolution: {integrity: sha512-6et7xfxG/HtMwenqNsphz59PbYT1joKL11q9sY2en3JvzJZtR1alOROIl/1ibgBFdHJqKarF82Uqo1tr1ijzfQ==}
+    dev: false
+
+  /wonka/6.3.3:
+    resolution: {integrity: sha512-id4wYGsT6aEc8/3+by7NTHvTe0DwsOjv7vah0K0+AorV1MHKuS3OQ2g8DGsem1OEXrNShbVLPsg4kG2O6GZ2SQ==}
     dev: false
 
   /word-wrap/1.2.3:
