@@ -322,14 +322,14 @@ importers:
       '@manaslu/prettier': workspace:*
       eslint-config-manaslu-base: workspace:*
       stylelint-config-prettier: 9.0.5
-      stylelint-config-recess-order: 3.1.0
+      stylelint-config-recess-order: 4.6.0
       stylelint-config-standard-scss: 7.0.1
       stylelint-prettier: 2.0.0
     devDependencies:
       '@manaslu/prettier': link:../prettier
       eslint-config-manaslu-base: link:../eslint/eslint-config-manaslu-base
       stylelint-config-prettier: 9.0.5
-      stylelint-config-recess-order: 3.1.0
+      stylelint-config-recess-order: 4.6.0
       stylelint-config-standard-scss: 7.0.1_postcss@8.4.21
       stylelint-prettier: 2.0.0_prettier@2.8.4
 
@@ -11119,7 +11119,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -14313,6 +14313,12 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /nanoid/3.3.7:
+    resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: true
+
   /nanomatch/1.2.13:
     resolution: {integrity: sha512-fpoe2T0RbHwBTBUOftAfBPaDEi06ufaUai0mE6Yn1kacc3SnTErfb/h+X94VXzI64rKFHYImXSvdwGGCmwOqCA==}
     engines: {node: '>=0.10.0'}
@@ -15468,12 +15474,12 @@ packages:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  /postcss-sorting/7.0.1_postcss@8.4.21:
-    resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
+  /postcss-sorting/8.0.2_postcss@8.4.35:
+    resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
     peerDependencies:
-      postcss: ^8.3.9
+      postcss: ^8.4.20
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.35
     dev: true
 
   /postcss-value-parser/4.2.0:
@@ -15502,6 +15508,15 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
+
+  /postcss/8.4.35:
+    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
 
   /prebuild-install/7.1.1:
     resolution: {integrity: sha512-jAXscXWMcCK8GgCoHOfIr0ODh5ai8mj63L2nWrjuAgXE6tDyYGnx4/8o/rCgU+B4JSyZBKbeZqzhtwtC3ovxjw==}
@@ -17486,12 +17501,12 @@ packages:
       stylelint: '>= 11.x < 15'
     dev: true
 
-  /stylelint-config-recess-order/3.1.0:
-    resolution: {integrity: sha512-LXR6zD5O9cS1a9gbLbuKvWLs7qmHj4xm5MQ5KhhwZPMhtQP9da3F6Jsp/NAUdsAwDQEnT1ShU16YVdgN6p4a/w==}
+  /stylelint-config-recess-order/4.6.0:
+    resolution: {integrity: sha512-V76fhv3YtcNXh/hyAuAdSzi5FmcrG54Mp2AThJ3D/PTMTSYzUPd7GIhP6z9mTqnRhmkk6YTfcu/JWB8h+Yrcaw==}
     peerDependencies:
-      stylelint: '>=14'
+      stylelint: '>=15'
     dependencies:
-      stylelint-order: 5.0.0
+      stylelint-order: 6.0.4
     dev: true
 
   /stylelint-config-recommended-scss/9.0.0_postcss@8.4.21:
@@ -17537,13 +17552,13 @@ packages:
       stylelint-config-recommended: 10.0.1
     dev: true
 
-  /stylelint-order/5.0.0:
-    resolution: {integrity: sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==}
+  /stylelint-order/6.0.4:
+    resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
     peerDependencies:
-      stylelint: ^14.0.0
+      stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
     dependencies:
-      postcss: 8.4.21
-      postcss-sorting: 7.0.1_postcss@8.4.21
+      postcss: 8.4.35
+      postcss-sorting: 8.0.2_postcss@8.4.35
     dev: true
 
   /stylelint-prettier/2.0.0_prettier@2.8.4:
