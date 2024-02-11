@@ -181,7 +181,7 @@ importers:
       style-loader: 3.3.2
       superjson: 1.12.2
       tailwind-merge: 1.10.0
-      tailwind-scrollbar: 2.1.0
+      tailwind-scrollbar: 3.1.0
       tailwindcss: 3.2.7
       ts-pattern: 4.2.1
       urql: 3.0.4
@@ -214,7 +214,7 @@ importers:
       sharp: 0.31.3
       superjson: 1.12.2
       tailwind-merge: 1.10.0
-      tailwind-scrollbar: 2.1.0_tailwindcss@3.2.7
+      tailwind-scrollbar: 3.1.0_tailwindcss@3.2.7
       tailwindcss: 3.2.7_postcss@8.4.21
       ts-pattern: 4.2.1
       urql: 3.0.4_onqnqwb3ubg5opvemcqf7c2qhy
@@ -11119,7 +11119,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -17781,8 +17781,8 @@ packages:
     resolution: {integrity: sha512-WFnDXSS4kFTZwjKg5/oZSGzBRU/l+qcbv5NVTzLUQvJ9yovDAP05h0F2+ZFW0Lw9EcgRoc2AfURUdZvnEFrXKg==}
     dev: false
 
-  /tailwind-scrollbar/2.1.0_tailwindcss@3.2.7:
-    resolution: {integrity: sha512-zpvY5mDs0130YzYjZKBiDaw32rygxk5RyJ4KmeHjGnwkvbjm/PszON1m4Bbt2DkMRIXlXsfNevykAESgURN4KA==}
+  /tailwind-scrollbar/3.1.0_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-pmrtDIZeHyu2idTejfV59SbaJyvp1VRjYxAjZBH0jnyrPRo6HL1kD5Glz8VPagasqr6oAx6M05+Tuw429Z8jxg==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
       tailwindcss: 3.x
