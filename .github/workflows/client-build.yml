@@ -15,7 +15,7 @@ jobs:
       client: ${{ steps.changes.outputs.client }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: check for file changes
         uses: dorny/paths-filter@v2
@@ -30,7 +30,7 @@ jobs:
     if: needs.filter.outputs.client == 'true'
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: setup node
         uses: actions/setup-node@v3
