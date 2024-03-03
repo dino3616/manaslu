@@ -19,7 +19,7 @@ jobs:
       client: ${{ steps.changes.outputs.client }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 
@@ -36,7 +36,7 @@ jobs:
     if: needs.filter.outputs.client == 'true'
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.workflow_run.head_sha }}

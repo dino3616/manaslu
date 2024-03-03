@@ -17,7 +17,7 @@ jobs:
       graphql: ${{ steps.changes.outputs.graphql }}
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 
@@ -34,7 +34,7 @@ jobs:
     if: needs.filter.outputs.graphql == 'true'
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.event.workflow_run.head_sha }}
