@@ -18,7 +18,7 @@
     "@manaslu/prettier": "workspace:*",
     "@tsconfig/next-strictest": "1.0.1",
     "@tsconfig/node-lts-strictest": "18.12.1",
-    "@tsconfig/strictest": "1.0.2",
+    "@tsconfig/strictest": "2.0.5",
     "eslint-config-manaslu-base": "workspace:*"
   }
 }
