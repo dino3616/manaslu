@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@types/jest': 29.4.2
       '@types/node': 18.15.3
-      '@types/uuid': 9.0.1
+      '@types/uuid': 10.0.0
       cross-env: 7.0.3
       dotenv: 16.0.3
       eslint: 8.36.0
@@ -27,7 +27,7 @@ importers:
     devDependencies:
       '@types/jest': 29.4.2
       '@types/node': 18.15.3
-      '@types/uuid': 9.0.1
+      '@types/uuid': 10.0.0
       cross-env: 7.0.3
       eslint: 8.36.0
       graphql: 16.6.0
@@ -6200,8 +6200,8 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
     dev: true
 
-  /@types/uuid/9.0.1:
-    resolution: {integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==}
+  /@types/uuid/10.0.0:
+    resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
     dev: true
 
   /@types/validator/13.7.12:
@@ -11119,7 +11119,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
