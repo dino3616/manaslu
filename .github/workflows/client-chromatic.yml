@@ -71,7 +71,7 @@ jobs:
         run: pnpm client gql:gen
 
       - name: publish
-        uses: chromaui/action@v1
+        uses: chromaui/action@v15
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
