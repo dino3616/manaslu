@@ -62,7 +62,7 @@
     "@manaslu/prettier": "workspace:*",
     "@manaslu/tsconfig": "workspace:*",
     "@types/graphql-validation-complexity": "0.4.0",
-    "apollo-server-express": "3.12.0",
+    "@apollo/server": "4.0.0",
     "eslint-config-manaslu-node": "workspace:*",
     "prisma": "4.11.0"
   }
