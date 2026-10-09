@@ -46,11 +46,11 @@ jobs:
           node-version: ${{ env.node-version }}
 
       - name: setup pnpm
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2.4.1
         id: pnpm-install
         with:
           run_install: false
-          version: 7.26.3
+          version: 7.33.7
 
       - name: get pnpm store
         id: pnpm-cache
@@ -64,7 +64,7 @@ jobs:
           restore-keys: ${{ runner.os }}-pnpm-store-
 
       - name: setup mongodb
-        uses: supercharge/mongodb-github-action@v1.9.0
+        uses: supercharge/mongodb-github-action@1.12.1
         with:
           mongodb-version: ${{ env.mongodb-version }}
           mongodb-port: 27017
